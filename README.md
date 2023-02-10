@@ -1,4 +1,5 @@
 # next.js and Cypress example [![renovate-app badge][renovate-badge]][renovate-app] [![CircleCI](https://circleci.com/gh/bahmutov/next-and-cypress-example.svg?style=svg)](https://circleci.com/gh/bahmutov/next-and-cypress-example)
+
 > [Next.js](https://nextjs.org/) example instrumented for code coverage from [Cypress tests](https://www.cypress.io/)
 
 ## Install and run
@@ -35,14 +36,14 @@ $ open coverage/lcov-report/index.html
 
 ![Code coverage report](images/report.png)
 
-To fetch the server-side code coverage, the `@cypress/code-coverage` plugin needs an endpoint. This endpoint is implemented in [pages/api/__coverage__.js](pages/api/__coverage__.js) file following the [Next.js API convention](https://nextjs.org/docs#api-routes). This endpoint just returns the existing global coverage object or `null`
+To fetch the server-side code coverage, the `@cypress/code-coverage` plugin needs an endpoint. This endpoint is implemented in [pages/api/**coverage**.js](pages/api/__coverage__.js) file following the [Next.js API convention](https://nextjs.org/docs#api-routes). This endpoint just returns the existing global coverage object or `null`
 
 ```js
 export default (req, res) => {
   res.status(200).json({
-    coverage: global.__coverage__ || null
-  })
-}
+    coverage: global.__coverage__ || null,
+  });
+};
 ```
 
 Cypress plugin requests the right endpoint using the environment variable from [cypress.json](cypress.json) file
@@ -78,9 +79,9 @@ Lines        : 100% ( 22/22 )
 
 Author: Gleb Bahmutov &lt;gleb.bahmutov@gmail.com&gt; &copy; 2019
 
-* [@bahmutov](https://twitter.com/bahmutov)
-* [glebbahmutov.com](https://glebbahmutov.com)
-* [blog](https://glebbahmutov.com/blog)
+- [@bahmutov](https://twitter.com/bahmutov)
+- [glebbahmutov.com](https://glebbahmutov.com)
+- [blog](https://glebbahmutov.com/blog)
 
 License: MIT - do anything with the code, but don't blame me if it does not work.
 
